@@ -124,10 +124,14 @@
   // stash them in hidden fields.) 
   function calc_times(control) {
     var km = control.find("input[name='km']").val();
+    //vars to hold date/time/dist to send to server
+    var begin_date = $("#begin_date").val();
+    var begin_time = $("#begin_time").val();
+    var brevet_dist_km = $("#brevet_dist_km").val();
     var open_time_field = control.find("input[name='open']");
     var close_time_field = control.find("input[name='close']");
     
-    $.getJSON(TIME_CALC_URL, { km: km }, 
+    $.getJSON(TIME_CALC_URL, { km: km, begin_date: begin_date, begin_time: begin_time, brevet_dist_km: brevet_dist_km }, 
       // response handler
       function(data) {
          var times = data.result;
@@ -165,6 +169,26 @@
              // Then calculate times for this entry
              calc_times(control_entry);
           });
+
+      //changed event handlers
+      //get information on change event
+      $('#begin_date').change(function(){
+        var begin_time = $(this).val();
+        var control_entry = $(this).parents(".row");
+        calc_times(control_entry);
+      });
+
+      $('#begin_time').change(function(){
+        var begin_time = $(this).val();
+        var control_entry = $(this).parents(".row");
+        calc_times(control_entry);
+      });
+
+      $('#brevet_dist_km').change(function(){
+        var begin_time = $(this).val();
+        var control_entry = $(this).parents(".row");
+        calc_times(control_entry);
+      });
 
      });   // end of what we do on document ready
 
