@@ -25,7 +25,7 @@ OVERALL = {200:[13,30],300:[20,0],400:[27,0],600:[40,0],1000:[75,0]}
 #Valid brevet distances
 VALID_DISTANCES = [200, 400, 600, 1000]
 
-def valid_input(control_dist_km,brevet_dist_km):
+def valid_input control_dist_km,brevet_dist_km :
   """
   Args:
      control_dist_km:  number, the control distance in kilometers
@@ -64,14 +64,14 @@ def calculate_time(control_dist_km, brevet_dist_km, brevet_start_time,index):
     return None
   time = 0
   #calculate 0
-  if (control_dist_km == 0):
+  if control_dist_km == 0:
     return arrow.get(brevet_start_time).shift(hours=+index).isoformat()
   
   #calculate time 
-  if (control_dist_km >= brevet_dist_km):
+  if control_dist_km >= brevet_dist_km:
     control_dist_km = brevet_dist_km
     #check max lim
-    if (index == CLOSE):
+    if  index == CLOSE:
       hour = OVERALL[control_dist_km][0]
       minn = OVERALL[control_dist_km][1]
       return arrow.get(brevet_start_time).shift(hours=+hour,minutes=+minn).isoformat()
