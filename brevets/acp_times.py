@@ -25,7 +25,7 @@ OVERALL = {200:[13,30],300:[20,0],400:[27,0],600:[40,0],1000:[75,0]}
 #Valid brevet distances
 VALID_DISTANCES = [200, 400, 600, 1000]
 
-def valid_input control_dist_km,brevet_dist_km :
+def valid_input (control_dist_km,brevet_dist_km) :
   """
   Args:
      control_dist_km:  number, the control distance in kilometers
