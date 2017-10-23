@@ -32,9 +32,6 @@ def valid_input(control_dist_km,brevet_dist_km):
      brevet_dist_km: number, the nominal distance of the brevet
          in kilometers, which must be one of 200, 300, 400, 600,
          or 1000 (the only official ACP brevet distances)
-     brevet_start_time:  An ISO 8601 format date-time string indicating
-         the official start time of the brevet
-     index: gets speed from max/min tables 1 = close 0 = open
   Returns:
      True if input(distances) are okay
   """
